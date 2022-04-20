@@ -152,10 +152,24 @@ const checkSum3 = (list, k) => {
 checkSum3([10, 15, 3, 7], 17); // doit sortir true
 checkSum3([1, 8, 10, 21], 19); // doit sortir false
 
+const checkSumBonus2 = (array, k) => array.filter(e => array.includes(k - e)).length > 1;
+console.log("Bonus exercice 5: [10, 15, 3, 7] => " + checkSumBonus2([10, 15, 3, 7], 17)); // doit sortir true
+console.log("Bonus exercice 5: [1, 8, 10, 21] => " + checkSumBonus2([1, 8, 10, 21], 19)); // doit sortir false
 
 
 
 
 // EXERCICE 6
-const viewSum3 = (list) => {
+const viewSum4 = (list) => {
+    let count = 0;
+    let result = ([...list].reverse().filter(a => {
+        if(a > count){
+            count = a;
+            return true;
+        }
+    }).length)
+    console.log(`Pour ${list}, nombre de bâtiments avec une vue sur le soleil couchant: ${result}`);
+    createLine();
 }
+viewSum4([3, 7, 8, 3, 6, 1]); // doit sortir 3
+viewSum4([1, 4, 5, 8]); // doit sortir 1

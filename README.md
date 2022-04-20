@@ -2,7 +2,7 @@
 
 ==============================
 
-- #### Deux sujets sur lesquels plusieurs exercices permettant de travailler l'algorithmie \*
+- #### Deux sujets sur lesquels plusieurs exercices permettant de travailler l'algorithmie 
 
 ### Sujet 1:
 
