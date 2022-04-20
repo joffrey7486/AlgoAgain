@@ -1,7 +1,6 @@
 // Sujet 1:
 /* Avec une liste de nombres entiers relatifs et un nombre k, crée une méthode retournant un booléen qui affiche si deux nombres de cette liste ont k comme résultat de leur somme.
 Par exemple, si je te donne la liste [10, 15, 3, 7] et k = 17, la fonction devra sortir true car 10 + 7 = 17. Si je te donne la liste [1, 8, 10, 21] et k = 19, la fonction devra sortir false car il n'y a pas deux nombres ayant 19 comme résultat de leur addition. */
-
 // Sujet 2:
 /* Nous allons te donner une liste contenant la hauteur (en étages) d'immeubles appartenant à une rue, d'est en ouest. Un agent immobilier voudrait que tu écrives un algorithme qui retourne combien de bâtiments de cette rue ont au moins un appartement avec une vue sur le soleil couchant (à l'ouest), afin de bien évaluer la valeur des bâtiments de la rue.
 Par exemple, avec la liste [3, 7, 8, 3, 6, 1], la fonction devrait retourner 3, puisque l'étage le plus haut des immeubles ayant comme taille 8, 6, et 1 ont tous une vue à l'ouest. Ou autre exemple la liste [1, 4, 5, 8] devrait te retourner 1 puisque seul le dernier bâtiment a au moins un appartement avec une vue à l'ouest. */
@@ -59,7 +58,7 @@ viewSunSet([1, 4, 5, 8]); // doit sortir 1
 
 // EXERCICE 3 ET 5
 // Objet set():  https://www.youtube.com/watch?v=lGJJ60NZ64g
-const checkSum3 = (list, k) => {
+const checkSum2 = (list, k) => {
     // créer une varriable égal à un object set() (permet de stocker des valeurs unique)
     let searchValues = new Set();
     let count = 0;
@@ -102,8 +101,8 @@ const checkSum3 = (list, k) => {
     console.log(`Pour ${list}, le nombre de boucle: ${count}`);
     createLine();
 }
-checkSum3([10, 15, 3, 7], 17); // doit sortir true
-checkSum3([1, 8, 10, 21], 19); // doit sortir false
+checkSum2([10, 15, 3, 7], 17); // doit sortir true
+checkSum2([1, 8, 10, 21], 19); // doit sortir false
 
 //La méthode some() teste si au moins un élément du tableau passe le test implémenté par la fonction fournie. Elle renvoie un booléen indiquant le résultat du test.
 const checkSumBonus = (list, k) => list.some((set => n => set.has(n) || !set.add(k - n))(new Set));
@@ -127,4 +126,36 @@ viewSunSet2([1, 4, 5, 8]); // doit sortir 1
 
 
 
+
+// EXERCICE 5
+const checkSum3 = (list, k) => {
+    let count = 0;
+    let tmp = []
+    for (let i = 0; i < list.length; i++) {
+        count++;
+        let diff = k - list[i];
+        if (list.includes(diff)) {
+            tmp.push(list[i]);
+            tmp.push(diff);
+            console.log(`Pour ${list}, obtenir la somme de ${k} avec deux éléments du tableau: ${true}`);
+            console.log(`Pour ${list}, le nombre de boucle: ${count}`);
+            createLine();
+            return;
+        } else {
+            tmp.push(list[i]);
+        }
+    }
+    console.log(`Pour ${list}, obtenir la somme de ${k} avec deux éléments du tableau: ${false}`);
+    console.log(`Pour ${list}, le nombre de boucle: ${count}`);
+    createLine();
+}
+checkSum3([10, 15, 3, 7], 17); // doit sortir true
+checkSum3([1, 8, 10, 21], 19); // doit sortir false
+
+
+
+
+
 // EXERCICE 6
+const viewSum3 = (list) => {
+}
