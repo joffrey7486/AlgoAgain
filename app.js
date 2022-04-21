@@ -72,14 +72,14 @@ const checkSum2 = (list, k) => {
         
 
         // *****************************************************
-        // console.log(`Départ boucle for => searchVal => ${searchVal}`);
+        console.log(`Départ boucle for => searchVal => ${searchVal}`);
         // *****************************************************
 
         // si la valeur de la somme des éléments du tableau est dans l'objet set()
         if (searchValues.has(list[i])) {
             count++;
             // *****************************************************
-            // console.log(`Condition if => searchVal: ${searchVal}`);
+            console.log(`Condition if => searchVal: ${searchVal}`);
             // *****************************************************
 
             // afficher le résultat
@@ -91,12 +91,12 @@ const checkSum2 = (list, k) => {
             searchValues.add(searchVal);
 
             // *****************************************************
-            // console.log(`Conditions else => searchVal => ${searchVal}`);
+            console.log(`Conditions else => searchVal => ${searchVal}`);
             // *****************************************************
         }
     }
     // afficher le résultat
-    // console.log(`Fin de boucle => searchValues: ${searchValues}`);
+    console.log(`Fin de boucle => searchValues: ${searchValues}`);
     console.log(`Pour ${list}, obtenir la somme de ${k} avec deux éléments du tableau: ${false}`);
     console.log(`Pour ${list}, le nombre de boucle: ${count}`);
     createLine();
@@ -116,13 +116,15 @@ console.log("Bonus exercice 3: [1, 8, 10, 21] =>" + checkSumBonus([1, 8, 10, 21]
 const viewSunSet2 = (list) => {
     let count = 0;
     for (let i = 0; i < list.length; i++) {
-        if(list[i] > list[i + 1] || i === list.length - 1) count++;
+        if(list[i] > list[i + 1]|| i === list.length - 1) count++;
     }
     console.log(`Pour ${list}, nombre de bâtiments avec une vue sur le soleil couchant: ${count}`);
     createLine();
 }
+console.log("ICIIIIIIIIIIIIIIII")
 viewSunSet2([3, 7, 8, 3, 6, 1]); // doit sortir 3
 viewSunSet2([1, 4, 5, 8]); // doit sortir 1
+
 
 
 
@@ -130,24 +132,20 @@ viewSunSet2([1, 4, 5, 8]); // doit sortir 1
 // EXERCICE 5
 const checkSum3 = (list, k) => {
     let count = 0;
-    let tmp = []
     for (let i = 0; i < list.length; i++) {
         count++;
         let diff = k - list[i];
         if (list.includes(diff)) {
-            tmp.push(list[i]);
-            tmp.push(diff);
             console.log(`Pour ${list}, obtenir la somme de ${k} avec deux éléments du tableau: ${true}`);
             console.log(`Pour ${list}, le nombre de boucle: ${count}`);
             createLine();
-            return;
-        } else {
-            tmp.push(list[i]);
-        }
+            return true;
+        } 
     }
     console.log(`Pour ${list}, obtenir la somme de ${k} avec deux éléments du tableau: ${false}`);
     console.log(`Pour ${list}, le nombre de boucle: ${count}`);
     createLine();
+    return false;
 }
 checkSum3([10, 15, 3, 7], 17); // doit sortir true
 checkSum3([1, 8, 10, 21], 19); // doit sortir false
